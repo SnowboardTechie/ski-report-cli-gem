@@ -1,21 +1,13 @@
 class SkiReport::CLI
+  include SkiReport
 
-  @@ALL = ["alaska", "arizona", "califonia", "colorado", "connecticut", "idaho", "illinois", "indiana", "iowa", "maine", "maryland", "massachusetts", "michigan", "minnesota", "missouri", "montana", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "ohio", "oregon", "pennsylvania", "south dakota", "tennessee", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"]
-
+  
   def call
     puts "Today's Ski Reports"
-    report
+    SkiReport::Report.today
   end
 
-  def list_states
-    @@ALL.each.with_index(1) do |state, i|
-      puts "#{i}. #{state.capitalize}"
-    end
-    puts "Please select a state to view resorts or type 'exit'"
-  end
-
-  def report
-
+  def menu
     input = nil
 
     while input != "exit"
@@ -25,8 +17,8 @@ class SkiReport::CLI
       if input.to_i > 0
         selection = @@ALL[input.to_i - 1]
 
-        weather = SkiReport::SkiScraper(selection)
-        #will return a hash with the weather data needed to make snow report shown below
+        SkiReport::Report.new(selection)
+        #will print the requested report to screen
       elsif input == "list"
         list_states
       end
@@ -41,5 +33,14 @@ class SkiReport::CLI
       end
     end
   end
+
+  def list_states
+    @@ALL.each.with_index(1) do |state, i|
+      puts "#{i}. #{state.capitalize}"
+    end
+    puts "Please select a state to view resorts or type 'exit'"
+  end
+
+  
 
 end
