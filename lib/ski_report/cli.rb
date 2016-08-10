@@ -13,7 +13,7 @@ class SkiReport::CLI
       input = gets.chomp.downcase
       
       if input.to_i > 0
-        SkiReport::Report.new(@@ALL[input.to_i - 1]) #will print the requested report to screen
+        SkiReport::Report.print_report(@@ALL[input.to_i - 1]) #will print the requested report to screen
       elsif input == "list"
         list_states
       end

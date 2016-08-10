@@ -1,16 +1,13 @@
 class SkiReport::Report
-  attr_accessor :state
 
-  def initialize(state)
-    @state = state.gsub(/\s/, '-')
-    print_report(get_report)
-  end
-
-  def self.get_report
+  def self.scrape_ots(state)
     #returns either array or hash for print_report
   end
 
-  def self.print_report
+  def self.print_report(state)
+    state = state.gsub(/\s/, '-')
+    scrape_ots(state)
+    puts "test"
     #uses data from get_report to print
   end
 
