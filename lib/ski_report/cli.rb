@@ -1,6 +1,6 @@
 class SkiReport::CLI
 
-  @@ALL = ["Alaska", "Arizona", "Califonia", "Colorado", "Connecticut", "Idaho", "Illinois", "Indiana", "Iowa", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Missouri", "Montana", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "Ohio", "Oregon", "Pennsylvania", "South Dakota", "Tennessee", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+  @@ALL = ["alaska", "arizona", "califonia", "colorado", "connecticut", "idaho", "illinois", "indiana", "iowa", "maine", "maryland", "massachusetts", "michigan", "minnesota", "missouri", "montana", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "ohio", "oregon", "pennsylvania", "south dakota", "tennessee", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"]
 
   def call
     puts "Today's Ski Reports"
@@ -8,22 +8,24 @@ class SkiReport::CLI
   end
 
   def list_states
-
-    puts <<-DOC
-    1. Colorado
-    2. Utah
-    DOC
+    @@ALL.each.with_index(1) do |state, i|
+      puts "#{i}. #{state.capitalize}"
+    end
     puts "Please select a state to view resorts or type 'exit'"
   end
 
   def report
-    list_states
 
     input = nil
 
     while input != "exit"
       list_states
       input = gets.chomp.downcase
+
+      if input.to_i > 0
+        selection = @@ALL[input.to_i - 1]
+      end
+
 
       if input.to_i == 1
         puts "Colorado snow reports:"
@@ -34,6 +36,4 @@ class SkiReport::CLI
       end
     end
   end
-
-
 end
