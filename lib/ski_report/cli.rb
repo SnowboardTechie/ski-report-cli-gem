@@ -24,6 +24,11 @@ class SkiReport::CLI
 
       if input.to_i > 0
         selection = @@ALL[input.to_i - 1]
+
+        weather = SkiReport::SkiScraper(selction)
+        #will return a hash with the weather data needed to make snow report shown below
+      elsif input = "list"
+        list_states
       end
 
 
