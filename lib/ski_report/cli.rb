@@ -21,13 +21,13 @@ class SkiReport::CLI
     while input != "exit"
       list_states
       input = gets.chomp.downcase
-
+      
       if input.to_i > 0
         selection = @@ALL[input.to_i - 1]
 
-        weather = SkiReport::SkiScraper(selction)
+        weather = SkiReport::SkiScraper(selection)
         #will return a hash with the weather data needed to make snow report shown below
-      elsif input = "list"
+      elsif input == "list"
         list_states
       end
 
@@ -41,4 +41,5 @@ class SkiReport::CLI
       end
     end
   end
+
 end
