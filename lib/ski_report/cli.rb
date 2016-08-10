@@ -13,7 +13,7 @@ class SkiReport::CLI
       input = gets.chomp.downcase
       
       if input.to_i > 0
-        SkiReport::Report.print_report(@@ALL[input.to_i - 1]) #will print the requested report to screen
+        SkiReport::Report.print_report(@@ALL[input.to_i - 1])
       elsif input == "list"
         list_states
       end
@@ -23,7 +23,7 @@ class SkiReport::CLI
 
   def list_states
     @@ALL.each.with_index(1) do |state, i|
-      puts "#{i}. #{state.capitalize}"
+      puts "#{i}. #{state.split.map(&:capitalize)*' '}"
     end
     puts "Please select a state to view resorts or type 'exit'"
   end
