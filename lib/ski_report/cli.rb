@@ -4,7 +4,7 @@ class SkiReport::CLI
   
   def call
     puts "Today's Ski Reports"
-    SkiReport::Report.today
+    menu
   end
 
   def menu
@@ -16,21 +16,11 @@ class SkiReport::CLI
       
       if input.to_i > 0
         selection = @@ALL[input.to_i - 1]
-
-        SkiReport::Report.new(selection)
-        #will print the requested report to screen
+        SkiReport::Report.new(selection) #will print the requested report to screen
       elsif input == "list"
         list_states
       end
 
-
-      if input.to_i == 1
-        puts "Colorado snow reports:"
-        puts "Arapahoe Basin Last 24 Hours = 0inches 48 Hours =  0inches"
-      elsif input.to_i == 2
-        puts "Utah snow reports:"
-        puts "Snowbird Last 24 Hours = 0inches 48 Hours = 0inches"
-      end
     end
   end
 
