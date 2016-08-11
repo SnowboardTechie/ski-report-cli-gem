@@ -44,9 +44,6 @@ class SkiReport::CLI
       7. #{@@SKI_STATES[6]}    14. #{@@SKI_STATES[13]}     21. #{@@SKI_STATES[20]}      28. #{@@SKI_STATES[27]}
     HEREDOC
 
-    # @@SKI_STATES.each.with_index(1) do |state, i|
-    #   puts "#{i}. #{state}"
-    # end
     puts "\nTo view resorts please select a state by entering its number or type 'exit'"
   end
   
