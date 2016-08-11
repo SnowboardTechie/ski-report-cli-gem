@@ -21,7 +21,7 @@ class SkiReport::Report
   def self.print_report(state)
     report_data = scrape_ots(state.gsub(/\s/, '-').downcase) #takes state and formats it for scraping
     longest_resort = report_data.max_by {|report| report[:name].length}[:name].length
-    puts "Snow Report's for #{state}:"
+    puts "\nSnow Report's for #{state}:"
     printf("%-#{longest_resort + 1}s|%10s|%10s|%10s\n", "Resort", "24Hr Total", "72Hr Total", "Base Depth")
     puts "-------------------------------------------------------------------"
     report_data.each do |resort|

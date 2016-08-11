@@ -14,7 +14,7 @@ class SkiReport::CLI
       
       if input.to_i > 0
         SkiReport::Report.print_report(@@ALL[input.to_i - 1])
-        puts "When you are ready to continue please press enter"
+        puts "\nWhen you are ready to continue please press enter"
         gets
       elsif input != "exit" 
         puts "Not valid input, please try again."
