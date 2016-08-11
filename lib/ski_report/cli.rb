@@ -38,7 +38,7 @@ class SkiReport::CLI
     # @@ALL.each.with_index(1) do |state, i|
     #   puts "#{i}. #{state}"
     # end
-    puts "\nPlease select a state to view resorts or type 'exit'"
+    puts "\nTo view resorts please select a state by entering its number or type 'exit'"
   end
   
 end
