@@ -1,21 +1,17 @@
 class SkiReport::Report
 
   def self.scrape_ots(state_url)
-    resorts = []
     scraped_data = Nokogiri::HTML(open("http://www.onthesnow.com/" + state_url + "/skireport.html?&ud=1&o=resort"))
-    
-    get_resorts(scraped_data).each do |resort|
-      if valid_resort?(resort)
-        new_resort = {
+
+    get_resorts(scraped_data).reject{|x| !valid_resort?(x)}.collect do |resort|
+        {
           :name => resort.css('.name').text,
           :twofour => resort.css('.rLeft b').first.text.slice(/\d+/),
           :seventwo => resort.css('.rLeft b').last.text.slice(/\d+/),
           :base => resort.css('.rMid b').text
         }
-        resorts << new_resort
-      end
     end
-    resorts
+
   end
 
   def self.print_report(state)
