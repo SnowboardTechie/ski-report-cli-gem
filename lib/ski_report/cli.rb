@@ -22,7 +22,8 @@ class SkiReport::CLI
       input = gets.strip.downcase
       
       if input.to_i > 0
-        SkiReport::Report.print_report(@@SKI_STATES[input.to_i - 1])
+        report = SkiReport::Report.new(@@SKI_STATES[input.to_i - 1])
+        report.print_report
         puts "\nWhen you are ready to continue please press enter"
         gets
       elsif input != "exit" 
