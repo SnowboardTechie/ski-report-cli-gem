@@ -19,7 +19,7 @@ class SkiReport::CLI
     input = nil
     while input != "exit"
       list_states
-      input = gets.chomp.downcase
+      input = gets.strip.downcase
       
       if input.to_i > 0
         SkiReport::Report.print_report(@@SKI_STATES[input.to_i - 1])
