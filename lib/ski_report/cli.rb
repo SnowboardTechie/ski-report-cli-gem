@@ -1,5 +1,5 @@
 class SkiReport::CLI
-  @@ALL = ["alaska", "arizona", "califonia", "colorado", "connecticut", "idaho", "illinois", "indiana", "iowa", "maine", "maryland", "massachusetts", "michigan", "minnesota", "missouri", "montana", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "ohio", "oregon", "pennsylvania", "south dakota", "tennessee", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"]
+  @@ALL = ["Alaska", "Arizona", "Califonia", "Colorado", "Connecticut", "Idaho", "Illinois", "Indiana", "Iowa", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Missouri", "Montana", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "Ohio", "Oregon", "Pennsylvania", "South Dakota", "Tennessee", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
   
   def call
     puts "Today's Ski Reports"
@@ -23,7 +23,7 @@ class SkiReport::CLI
 
   def list_states
     @@ALL.each.with_index(1) do |state, i|
-      puts "#{i}. #{state.split.map(&:capitalize)*' '}"
+      puts "#{i}. #{state}"
     end
     puts "Please select a state to view resorts or type 'exit'"
   end
