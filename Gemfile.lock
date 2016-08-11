@@ -3,7 +3,6 @@ PATH
   specs:
     ski_report (0.1.0)
       nokogiri
-      pry
 
 GEM
   remote: https://rubygems.org/
@@ -27,6 +26,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.11)
+  pry (~> 0)
   rake (~> 10.0)
   ski_report!
 
