@@ -2,8 +2,8 @@ class SkiReport::Report
 
   def self.scrape_ots(state_url)
     resorts = []
-    doc = Nokogiri::HTML(open("http://www.onthesnow.com/" + state_url + "/skireport.html?&ud=1&o=resort"))
-    doc.css(".resScrollCol8 table tr").each do |resort|
+    ski_reports = Nokogiri::HTML(open("http://www.onthesnow.com/" + state_url + "/skireport.html?&ud=1&o=resort"))
+    ski_reports.css(".resScrollCol8 table tr").each do |resort|
       if resort.css('.name').text != ""
         new_resort = {
           :name => resort.css('.name').text,
@@ -18,14 +18,32 @@ class SkiReport::Report
   end
 
   def self.print_report(state)
-    report_data = scrape_ots(state.gsub(/\s/, '-').downcase) #takes state and formats it for scraping
+    report_data = scrape_ots(state_url_creator(state)) 
     longest_resort = report_data.max_by {|report| report[:name].length}[:name].length
+
     puts "\nSnow Report's for #{state}:"
-    printf("%-#{longest_resort + 1}s|%10s|%10s|%10s\n", "Resort", "24Hr Total", "72Hr Total", "Base Depth")
+
+    printf("%-#{longest_resort + 1}s|%10s|%10s|%10s\n", 
+      "Resort", 
+      "24Hr Total", 
+      "72Hr Total", 
+      "Base Depth"
+      )
+
     puts "-------------------------------------------------------------------"
+
     report_data.each do |resort|
-      printf("%-#{longest_resort + 1}s|    %-6s|    %-6s|%10s\n", resort[:name], resort[:twofour] + '"', resort[:seventwo] + '"', resort[:base])
+      printf("%-#{longest_resort + 1}s|    %-6s|    %-6s|%10s\n", 
+        resort[:name], 
+        resort[:twofour] + '"', 
+        resort[:seventwo] + '"', 
+        resort[:base]
+      )
     end
+  end
+
+  def self.state_url_creator(state)
+    state.gsub(/\s/, '-').downcase
   end
 
 end
