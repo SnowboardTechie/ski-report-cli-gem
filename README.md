@@ -2,7 +2,7 @@
 
 ## Installation
 
-You can install this gem via `gem install ski_report`. The `ski-report` CLI will be installed and you can run `ski-report` to get ski reports right in your command line.
+You can install this gem via `gem install ski-report-cli-gem`. The `ski-report` CLI will be installed and you can run `ski-report` to get ski reports right in your command line.
 
 ## Usage
 

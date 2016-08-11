@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'ski_report/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ski_report"
+  spec.name          = "ski-report-cli-gem"
   spec.version       = SkiReport::VERSION
   spec.authors       = ["SnowboardTechie"]
   spec.email         = ["bryan.thompson518@gmail.com"]
