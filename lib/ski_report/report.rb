@@ -5,7 +5,6 @@ class SkiReport::Report
     doc = Nokogiri::HTML(open("http://www.onthesnow.com/" + state_url + "/skireport.html?&ud=1&o=resort"))
     doc.css(".resScrollCol8 table tr").each do |resort|
       if resort.css('.name').text != ""
-        # binding.pry
         new_resort = {
           :name => resort.css('.name').text,
           :twofour => resort.css('.rLeft b').first.text.slice(/\d+/),
