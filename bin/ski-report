@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "./lib/ski_report"
+require_relative "../lib/ski_report"
 
 SkiReport::CLI.new.call
