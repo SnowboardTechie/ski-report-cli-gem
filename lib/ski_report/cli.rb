@@ -1,5 +1,14 @@
 class SkiReport::CLI
-  @@ALL = ["Alaska", "Arizona", "California", "Colorado", "Connecticut", "Idaho", "Illinois", "Indiana", "Iowa", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Missouri", "Montana", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "Ohio", "Oregon", "Pennsylvania", "South Dakota", "Tennessee", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+  @@SKI_STATES = ["Alaska", "Arizona", "California", "Colorado", 
+            "Connecticut", "Idaho", "Illinois", "Indiana", 
+            "Iowa", "Maine", "Maryland", "Massachusetts", 
+            "Michigan", "Minnesota", "Missouri", "Montana", 
+            "Nevada", "New Hampshire", "New Jersey", 
+            "New Mexico", "New York", "North Carolina", "Ohio", 
+            "Oregon", "Pennsylvania", "South Dakota", "Tennessee", 
+            "Utah", "Vermont", "Virginia", "Washington", 
+            "West Virginia", "Wisconsin", "Wyoming"
+          ]
   
   def call
     puts "                 ************* Welcome to Ski Reports *************"
@@ -13,7 +22,7 @@ class SkiReport::CLI
       input = gets.chomp.downcase
       
       if input.to_i > 0
-        SkiReport::Report.print_report(@@ALL[input.to_i - 1])
+        SkiReport::Report.print_report(@@SKI_STATES[input.to_i - 1])
         puts "\nWhen you are ready to continue please press enter"
         gets
       elsif input != "exit" 
@@ -26,16 +35,16 @@ class SkiReport::CLI
 
   def list_states
     puts <<-HEREDOC
-      1. #{@@ALL[0]}       8. #{@@ALL[7]}       15. #{@@ALL[14]}      22. #{@@ALL[21]} 29. #{@@ALL[28]}
-      2. #{@@ALL[1]}      9. #{@@ALL[8]}          16. #{@@ALL[15]}       23. #{@@ALL[22]}           30. #{@@ALL[29]}
-      3. #{@@ALL[2]}  10. #{@@ALL[9]}         17. #{@@ALL[16]}        24. #{@@ALL[23]}         31. #{@@ALL[30]}
-      4. #{@@ALL[3]}    11. #{@@ALL[10]}      18. #{@@ALL[17]} 25. #{@@ALL[24]}   32. #{@@ALL[31]}
-      5. #{@@ALL[4]} 12. #{@@ALL[11]} 19. #{@@ALL[18]}    26. #{@@ALL[25]}   33. #{@@ALL[32]}
-      6. #{@@ALL[5]}       13. #{@@ALL[12]}      20. #{@@ALL[19]}    27. #{@@ALL[26]}      34. #{@@ALL[33]}
-      7. #{@@ALL[6]}    14. #{@@ALL[13]}     21. #{@@ALL[20]}      28. #{@@ALL[27]}
+      1. #{@@SKI_STATES[0]}       8. #{@@SKI_STATES[7]}       15. #{@@SKI_STATES[14]}      22. #{@@SKI_STATES[21]} 29. #{@@SKI_STATES[28]}
+      2. #{@@SKI_STATES[1]}      9. #{@@SKI_STATES[8]}          16. #{@@SKI_STATES[15]}       23. #{@@SKI_STATES[22]}           30. #{@@SKI_STATES[29]}
+      3. #{@@SKI_STATES[2]}  10. #{@@SKI_STATES[9]}         17. #{@@SKI_STATES[16]}        24. #{@@SKI_STATES[23]}         31. #{@@SKI_STATES[30]}
+      4. #{@@SKI_STATES[3]}    11. #{@@SKI_STATES[10]}      18. #{@@SKI_STATES[17]} 25. #{@@SKI_STATES[24]}   32. #{@@SKI_STATES[31]}
+      5. #{@@SKI_STATES[4]} 12. #{@@SKI_STATES[11]} 19. #{@@SKI_STATES[18]}    26. #{@@SKI_STATES[25]}   33. #{@@SKI_STATES[32]}
+      6. #{@@SKI_STATES[5]}       13. #{@@SKI_STATES[12]}      20. #{@@SKI_STATES[19]}    27. #{@@SKI_STATES[26]}      34. #{@@SKI_STATES[33]}
+      7. #{@@SKI_STATES[6]}    14. #{@@SKI_STATES[13]}     21. #{@@SKI_STATES[20]}      28. #{@@SKI_STATES[27]}
     HEREDOC
 
-    # @@ALL.each.with_index(1) do |state, i|
+    # @@SKI_STATES.each.with_index(1) do |state, i|
     #   puts "#{i}. #{state}"
     # end
     puts "\nTo view resorts please select a state by entering its number or type 'exit'"
