@@ -1,5 +1,5 @@
 class SkiReport::CLI
-  @@ALL = ["Alaska", "Arizona", "Califonia", "Colorado", "Connecticut", "Idaho", "Illinois", "Indiana", "Iowa", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Missouri", "Montana", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "Ohio", "Oregon", "Pennsylvania", "South Dakota", "Tennessee", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+  @@ALL = ["Alaska", "Arizona", "California", "Colorado", "Connecticut", "Idaho", "Illinois", "Indiana", "Iowa", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Missouri", "Montana", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "Ohio", "Oregon", "Pennsylvania", "South Dakota", "Tennessee", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
   
   def call
     puts "Today's Ski Reports"
@@ -14,6 +14,8 @@ class SkiReport::CLI
       
       if input.to_i > 0
         SkiReport::Report.print_report(@@ALL[input.to_i - 1])
+        puts "When you are ready to continue please press enter"
+        gets
       elsif input == "list"
         list_states
       end
