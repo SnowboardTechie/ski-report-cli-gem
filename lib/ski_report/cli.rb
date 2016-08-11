@@ -16,8 +16,9 @@ class SkiReport::CLI
         SkiReport::Report.print_report(@@ALL[input.to_i - 1])
         puts "When you are ready to continue please press enter"
         gets
-      elsif input == "list"
-        list_states
+      elsif input != "exit" 
+        puts "Not valid input, please try again."
+        sleep(2)
       end
 
     end
