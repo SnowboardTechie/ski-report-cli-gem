@@ -1,28 +1,12 @@
 # SkiReport
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ski_report`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'ski_report'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ski_report
+You can install this gem via `gem install ski_report`. The `ski-report` CLI will be installed and you can run `ski-report` to get ski reports right in your command line.
 
 ## Usage
 
-TODO: Write usage instructions here
+Run: `ski-report` after installing the gem.
 
 ## Development
 
