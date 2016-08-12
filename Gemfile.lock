@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ski_report (0.1.2)
+    ski-report-cli-gem (0.1.0)
       nokogiri (~> 1.6)
 
 GEM
@@ -28,7 +28,7 @@ DEPENDENCIES
   bundler (~> 1.11)
   pry (~> 0)
   rake (~> 10.0)
-  ski_report!
+  ski-report-cli-gem!
 
 BUNDLED WITH
    1.11.2

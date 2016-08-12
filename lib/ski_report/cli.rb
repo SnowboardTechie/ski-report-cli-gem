@@ -30,7 +30,6 @@ class SkiReport::CLI
         puts "Input not valid, please try again."
         sleep(2)
       end
-
     end
   end
 
@@ -49,3 +48,4 @@ class SkiReport::CLI
   end
   
 end
+
