@@ -44,7 +44,8 @@ class SkiReport::Report
       SkiReport::Resort.new(resort.css('.name').text,
                             resort.css('.rLeft b').first.text.slice(/\d+/), 
                             resort.css('.rLeft b').last.text.slice(/\d+/), 
-                            resort.css('.rMid b').text
+                            resort.css('.rMid b').text,
+                            resort.css(".rMid a").attribute('href').value
                            )
     end
   end

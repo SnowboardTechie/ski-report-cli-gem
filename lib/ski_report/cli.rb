@@ -27,7 +27,7 @@ class SkiReport::CLI
         puts "\nWhen you are ready to continue please press enter or type 'exit' to exit"
         input = gets.strip.downcase
       elsif input != "exit" 
-        puts "Not valid input, please try again."
+        puts "Input not valid, please try again."
         sleep(2)
       end
 
