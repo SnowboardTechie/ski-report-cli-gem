@@ -4,7 +4,7 @@ class SkiReport::Report
 
   def initialize(state)
     @state = state
-    save_resorts(get_resorts(SkiReport::Scraper.new.scrape_ots(state)))
+    save_resorts(get_resorts(SkiReport::Scraper.new.scrape_state(state)))
   end 
     
   def print_report
