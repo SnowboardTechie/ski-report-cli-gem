@@ -8,11 +8,11 @@ class SkiReport::Report
   end 
     
   def print_report
-    longest_resort = @all_resorts.max_by {|report| report[:name].length}[:name].length
+    longest_resort_name = @all_resorts.max_by {|resort| resort.name.length}.name.length
 
     puts "\nSnow Report's for #{@state}:"
 
-    printf("%-#{longest_resort + 1}s|%10s|%10s|%10s\n", 
+    printf("%-#{longest_resort_name + 1}s|%10s|%10s|%10s\n", 
       "Resort", 
       "24Hr Total", 
       "72Hr Total", 
@@ -22,11 +22,11 @@ class SkiReport::Report
     puts "-------------------------------------------------------------------"
 
     @all_resorts.each do |resort|
-      printf("%-#{longest_resort + 1}s|    %-6s|    %-6s|%10s\n", 
-        resort[:name], 
-        resort[:twofour] + '"', 
-        resort[:seventwo] + '"', 
-        resort[:base]
+      printf("%-#{longest_resort_name + 1}s|    %-6s|    %-6s|%10s\n", 
+        resort.name, 
+        resort.one_day_snowfall + '"', 
+        resort.three_day_snowfall + '"', 
+        resort.base_depth
       )
     end
   end
@@ -41,12 +41,11 @@ class SkiReport::Report
 
   def save_resorts(resorts_scraped_data)
     @all_resorts = resorts_scraped_data.collect do |resort|
-      {
-        :name => resort.css('.name').text,
-        :twofour => resort.css('.rLeft b').first.text.slice(/\d+/),
-        :seventwo => resort.css('.rLeft b').last.text.slice(/\d+/),
-        :base => resort.css('.rMid b').text
-      }
+      SkiReport::Resort.new(resort.css('.name').text,
+                            resort.css('.rLeft b').first.text.slice(/\d+/), 
+                            resort.css('.rLeft b').last.text.slice(/\d+/), 
+                            resort.css('.rMid b').text
+                           )
     end
   end
 
