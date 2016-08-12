@@ -15,7 +15,8 @@ The `ski-report` CLI will be installed and you can run `ski-report` to get ski r
 Run: 
 ```
 ski-report
-``` after installing the gem.
+``` 
+after installing the gem.
 
 
 ## Development
