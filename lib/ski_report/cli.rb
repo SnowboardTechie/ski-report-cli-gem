@@ -24,8 +24,8 @@ class SkiReport::CLI
       if input.to_i > 0 && input.to_i <= @@SKI_STATES.length
         report = SkiReport::Report.new(@@SKI_STATES[input.to_i - 1])
         report.print_report
-        puts "\nWhen you are ready to continue please press enter"
-        gets
+        puts "\nWhen you are ready to continue please press enter or type 'exit' to exit"
+        input = gets.strip.downcase
       elsif input != "exit" 
         puts "Not valid input, please try again."
         sleep(2)
